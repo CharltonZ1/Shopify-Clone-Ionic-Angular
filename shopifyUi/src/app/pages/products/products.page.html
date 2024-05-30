@@ -9,40 +9,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content #content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list>
-    <ion-searchbar placeholder="Search products"></ion-searchbar>
-    <ion-item *ngFor="let product of items; let last = last;" detail="true" [lines]="last ? 'none' : true">
-      <ion-icon [name]="product.icon" slot="start"></ion-icon>
-      <ion-label color="medium">
-        {{ product.name }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-searchbar placeholder="Search products"></ion-searchbar>
-    <ion-item *ngFor="let product of items; let last = last;" detail="true" [lines]="last ? 'none' : true">
-      <ion-icon [name]="product.icon" slot="start"></ion-icon>
-      <ion-label color="medium">
-        {{ product.name }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-searchbar placeholder="Search products"></ion-searchbar>
-    <ion-item *ngFor="let product of items; let last = last;" detail="true" [lines]="last ? 'none' : true">
-      <ion-icon [name]="product.icon" slot="start"></ion-icon>
-      <ion-label color="medium">
-        {{ product.name }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
   <ion-list>
     <ion-searchbar placeholder="Search products"></ion-searchbar>
     <ion-item *ngFor="let product of items; let last = last;" detail="true" [lines]="last ? 'none' : true">
@@ -59,6 +29,26 @@
       <ion-label color="medium">Inventory scanner</ion-label>
     </ion-item>
   </ion-list>
+
+  <div class="swiper-box">
+    <ion-item lines="none">
+      <ion-label class="section-header">Recently updated products</ion-label>
+      <ion-button fill="clear" slot="end">More</ion-button>
+    </ion-item>
+
+    <swiper-container [slidesPerView]="2.5" [spaceBetween]="10">
+      <swiper-slide *ngFor="let slide of products">
+        <div class="product-image">
+          <img [src]="slide.image" alt="product image">
+        </div>
+        <div class="product-text">
+          <span class="product-label">{{ slide.title | slice:0:25}}{{slide.title.length > 25 ? '...' : ''}}</span>
+          <p class="product-desc">{{ slide.description | slice:0:16 }}{{slide.title.length > 16 ? '...' : ''}}</p>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
 
   <ion-popover trigger="popover" triggerAction="click">
     <ng-template>
