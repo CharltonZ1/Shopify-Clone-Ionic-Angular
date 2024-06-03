@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button color="primary" defaultHref="/products" text="Products"></ion-back-button>
     </ion-buttons>
-    <ion-title>details</ion-title>
+    <ion-title>Product Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -52,12 +52,48 @@
       </ion-label>
     </ion-item>
   </ng-container>
+
   <ng-template #contentLoaded>
     <ion-item lines="none">
       <ion-icon name="pricetag" slot="start" color="medium"></ion-icon>
       <ion-label>
-        Product Details
+        Product Name
         <p class="ion-padding-top">A description of the product</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-grid class="ion-padding-top">
+      <ion-row>
+        <ion-col size="12">
+          <ion-text color="primary">Media</ion-text>
+        </ion-col>
+
+        <ion-col size="6">
+          <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" alt="product" class="product-image">
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-row>
+            <ion-col size="6" class="ion-no-padding ion-no-margin">
+              <div class="box">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item *ngFor="let i of [1,2,3]" lines="none" detail="true">
+      <img 
+      src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" 
+      slot="start" 
+      style="width: 50px; height: 50px;">
+      <ion-label>
+        Product
+        <p style="width: 60%;" class="ion-padding-top">
+          A description of the product
+        </p>
       </ion-label>
     </ion-item>
   </ng-template>
