@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, RendererStyleFlags2, ViewChild } from '@angular/core';
 import { DomController, Gesture, GestureController, GestureDetail, IonRouterOutlet, Platform, isPlatform } from '@ionic/angular';
 
@@ -5,6 +6,14 @@ import { DomController, Gesture, GestureController, GestureDetail, IonRouterOutl
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({ opacity: 0 })), 
+      state('*', style({ opacity: 1 })),
+      transition('void => *', animate('500ms ease-in')),
+      transition('* => void', animate('500ms ease-in'))
+    ])
+  ]
 })
 export class DetailsPage implements OnInit, AfterViewInit {
   loading = true;

@@ -36,92 +36,96 @@
 
 <ion-content class="ion-padding">
   <ng-container *ngIf="loading; else contentLoaded">
-    <ion-item lines="none">
-      <ion-icon name="pricetag" slot="start" color="medium"></ion-icon>
-      <ion-label>
-        <ion-skeleton-text animated style="width: 50vw; padding: 2px;"></ion-skeleton-text>
-        <ion-skeleton-text animated style="width: 70vw;" class="ion-margin-top"></ion-skeleton-text>
-        <ion-skeleton-text animated style="width: 70vw;" class="ion-margin-top"></ion-skeleton-text>
-      </ion-label>
-    </ion-item>
+    <div @fadeInOut class="loading-state">
+      <ion-item lines="none">
+        <ion-icon name="pricetag" slot="start" color="medium"></ion-icon>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 50vw; padding: 2px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70vw;" class="ion-margin-top"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70vw;" class="ion-margin-top"></ion-skeleton-text>
+        </ion-label>
+      </ion-item>
 
-    <ion-grid class="ion-padding-top" style="width: 90vw;">
-      <ion-row>
-        <ion-col size="12">
-          <ion-skeleton-text animated style="width: 20%;"></ion-skeleton-text>
-        </ion-col>
-        <ion-col size="6">
-          <ion-skeleton-text animated style="width: 100%; height: 20vh;"></ion-skeleton-text>
-        </ion-col>
-        <ion-col size="6">
-          <ion-row>
-            <ion-col size="6">
-              <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
-            </ion-col>
-            <ion-col size="6">
-              <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
-            </ion-col>
-            <ion-col size="6">
-              <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
-            </ion-col>
-            <ion-col size="6">
-              <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-item *ngFor="let i of [1,2,3]" lines="none" detail="true">
-      <ion-skeleton-text style="width: 50px; height: 50px;" slot="start"></ion-skeleton-text>
-      <ion-label>
-        <ion-skeleton-text animated style="width: 70%;"></ion-skeleton-text>
-        <ion-skeleton-text animated style="width: 80%;" class="ion-margin-top"></ion-skeleton-text>
-      </ion-label>
-    </ion-item>
+      <ion-grid class="ion-padding-top" style="width: 90vw;">
+        <ion-row>
+          <ion-col size="12">
+            <ion-skeleton-text animated style="width: 20%;"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="6">
+            <ion-skeleton-text animated style="width: 100%; height: 20vh;"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row>
+              <ion-col size="6">
+                <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
+              </ion-col>
+              <ion-col size="6">
+                <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
+              </ion-col>
+              <ion-col size="6">
+                <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
+              </ion-col>
+              <ion-col size="6">
+                <ion-skeleton-text animated style="width: 100%; height: 8vh;"></ion-skeleton-text>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item *ngFor="let i of [1,2,3]" lines="none" detail="true">
+        <ion-skeleton-text style="width: 50px; height: 50px;" slot="start"></ion-skeleton-text>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 70%;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 80%;" class="ion-margin-top"></ion-skeleton-text>
+        </ion-label>
+      </ion-item>
+    </div>
   </ng-container>
 
   <ng-template #contentLoaded>
-    <ion-item lines="none">
-      <ion-icon name="pricetag" slot="start" color="medium"></ion-icon>
-      <ion-label>
-        Product Name
-        <p class="ion-padding-top">A description of the product</p>
-      </ion-label>
-    </ion-item>
+    <div @fadeInOut class="content-state">
+      <ion-item lines="none">
+        <ion-icon name="pricetag" slot="start" color="medium"></ion-icon>
+        <ion-label>
+          Product Name
+          <p class="ion-padding-top">A description of the product</p>
+        </ion-label>
+      </ion-item>
 
-    <ion-grid class="ion-padding-top">
-      <ion-row>
-        <ion-col size="12">
-          <ion-text color="primary">Media</ion-text>
-        </ion-col>
+      <ion-grid class="ion-padding-top">
+        <ion-row>
+          <ion-col size="12">
+            <ion-text color="primary">Media</ion-text>
+          </ion-col>
 
-        <ion-col size="6">
-          <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" alt="product"
-            class="product-image">
-        </ion-col>
+          <ion-col size="6">
+            <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" alt="product"
+              class="product-image">
+          </ion-col>
 
-        <ion-col size="6">
-          <ion-row>
-            <ion-col size="6" class="ion-no-padding ion-no-margin">
-              <div class="box">
-                <ion-icon name="add"></ion-icon>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+          <ion-col size="6">
+            <ion-row>
+              <ion-col size="6" class="ion-no-padding ion-no-margin">
+                <div class="box">
+                  <ion-icon name="add"></ion-icon>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-    <ion-item *ngFor="let i of [1,2,3]" lines="none" detail="true">
-      <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" slot="start"
-        style="width: 50px; height: 50px;">
-      <ion-label>
-        Product
-        <p style="width: 60%;" class="ion-padding-top">
-          A description of the product
-        </p>
-      </ion-label>
-    </ion-item>
+      <ion-item *ngFor="let i of [1,2,3]" lines="none" detail="true">
+        <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" slot="start"
+          style="width: 50px; height: 50px;">
+        <ion-label>
+          Product
+          <p style="width: 60%;" class="ion-padding-top">
+            A description of the product
+          </p>
+        </ion-label>
+      </ion-item>
+    </div>
   </ng-template>
 
   <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
