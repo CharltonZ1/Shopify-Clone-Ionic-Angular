@@ -96,7 +96,8 @@
         </ion-col>
 
         <ion-col size="6">
-          <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" alt="product" class="product-image">
+          <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" alt="product"
+            class="product-image">
         </ion-col>
 
         <ion-col size="6">
@@ -112,10 +113,8 @@
     </ion-grid>
 
     <ion-item *ngFor="let i of [1,2,3]" lines="none" detail="true">
-      <img 
-      src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" 
-      slot="start" 
-      style="width: 50px; height: 50px;">
+      <img src="https://ionicacademy.com/wp-content/uploads/2021/11/academy-150x150.jpg" slot="start"
+        style="width: 50px; height: 50px;">
       <ion-label>
         Product
         <p style="width: 60%;" class="ion-padding-top">
@@ -135,7 +134,7 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      
+
       <ion-content>
         <ion-list>
           <ion-item lines="none">
@@ -147,7 +146,7 @@
               <p>Title</p>
             </ion-label>
           </ion-item>
-          
+
           <ion-item lines="none">
             <ion-avatar slot="start">
               <ion-img src="https://i.pravatar.cc/300?u=a"></ion-img>
@@ -172,3 +171,34 @@
     </ng-template>
   </ion-modal>
 </ion-content>
+
+<ion-footer>
+  <div #bottomSheet class="bottom-sheet">
+    <div class="sheet-header">
+      <h3>More details</h3>
+      <div #dropdownBtn class="dropdown-btn" (click)="toggleDropdown()">
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+
+    <ion-list>
+      <ion-item detail="true" lines="none">
+        <ion-icon name="cart-outline" slot="start"></ion-icon>
+        <ion-label>Shipping</ion-label>
+        <span slot="end">0 kg</span>
+      </ion-item>
+
+      <ion-item detail="true" lines="none">
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+        <ion-label>Product organization</ion-label>
+        <span slot="end">Galaxies.dev</span>
+      </ion-item>
+
+      <ion-item detail="true" lines="none">
+        <ion-icon name="pricetag-outline" slot="start"></ion-icon>
+        <ion-label>Collections</ion-label>
+        <span slot="end">Home page</span>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-footer>
