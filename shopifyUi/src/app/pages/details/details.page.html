@@ -3,7 +3,34 @@
     <ion-buttons slot="start">
       <ion-back-button color="primary" defaultHref="/products" text="Products"></ion-back-button>
     </ion-buttons>
-    <ion-title>Product Details</ion-title>
+
+    <div class="title-wrapper" id="open-modal" tappable [ngStyle]="{background: loading ? '#fff' : 'primary'}">
+      <ng-container *ngIf="loading; else notLoadingTemplate">
+        <ion-label color="primary">
+          <ion-skeleton-text animated style="width: 80px;"></ion-skeleton-text>
+        </ion-label>
+        <span>
+          <ion-skeleton-text animated style="width: 60px;"></ion-skeleton-text>
+        </span>
+      </ng-container>
+
+      <ng-template #notLoadingTemplate>
+        <ion-label color="primary">
+          Active
+          <ion-icon name="chevron-down"></ion-icon>
+        </ion-label>
+        <span>5 channels</span>
+      </ng-template>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [color]="loading ? 'medium' : 'primary'" [disabled]="loading">
+        <ion-icon name="share-outline" slot="icon-only" size="small"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" [color]="loading ? 'medium' : 'primary'" [disabled]="loading">
+        <ion-icon slot="icon-only" size="small" [name]="loading ? 'ellipsis-horizontal' : 'cart'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -97,4 +124,51 @@
       </ion-label>
     </ion-item>
   </ng-template>
+
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content>
+        <ion-list>
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>Name Surname</h2>
+              <p>Title</p>
+            </ion-label>
+          </ion-item>
+          
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img src="https://i.pravatar.cc/300?u=a"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>Name Surname</h2>
+              <p>Title</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img src="https://i.pravatar.cc/300?u=c"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>Name Surname</h2>
+              <p>Title</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

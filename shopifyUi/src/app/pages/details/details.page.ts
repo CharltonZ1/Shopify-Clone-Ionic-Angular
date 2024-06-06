@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IonRouterOutlet } from '@ionic/angular';
 
 @Component({
   selector: 'app-details',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsPage implements OnInit {
   loading = true;
+  presentingElement: HTMLIonRouterOutletElement;
 
-  constructor() { }
+  constructor(private routerOutlet: IonRouterOutlet) {
+    this.presentingElement = this.routerOutlet.nativeEl;
+  }
 
   ngOnInit() {
     setTimeout(() => {

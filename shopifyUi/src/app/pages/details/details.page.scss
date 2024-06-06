@@ -7,3 +7,23 @@
     justify-content: center;
     align-items: center;
 }
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
+    border-radius: 7px;
+
+    span {
+        color: grey;
+        font-weight: 200;
+    }
+
+    ion-label {
+        display: flex;
+        font-weight: 500;
+        align-items: center;
+    }
+}
